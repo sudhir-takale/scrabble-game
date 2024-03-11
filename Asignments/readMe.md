@@ -69,19 +69,7 @@ The Credit Card Company
         - viewSpending(month)
 
     }
-    class User {
-    String userName;
-    Address address;
-    CreditCard creditCard;
-    ContactDetails contactDetails;
 
-        User(uName, creditCard, contactDetails, address)
-
-        Methods:
-        - getTotalAmount()
-        - viewSpending(month)
-
-    }
 
     class SpendingManager {
     private Map<String, Integer> spendingOfMonth;
