@@ -23,8 +23,15 @@ public class ScrabbleTest {
         });
     }
 
+    @Test
+    void shouldAbleToReturnSumOfString() throws InvalidStringException {
+
+        Scrabble scrabble = new Scrabble("IT");
+        int sum = scrabble.calculateResult();
+        Assertions.assertEquals(2, sum);
 
 
+    }
 
 
 }
