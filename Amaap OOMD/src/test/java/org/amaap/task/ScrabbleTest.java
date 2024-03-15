@@ -27,8 +27,27 @@ public class ScrabbleTest {
     void shouldAbleToReturnSumOfString() throws InvalidStringException {
 
         Scrabble scrabble = new Scrabble("IT");
-        int sum = scrabble.calculateResult();
-        Assertions.assertEquals(2, sum);
+        int score = scrabble.calculateScore();
+        Assertions.assertEquals(2, score);
+
+
+    }
+
+    @Test
+    void shouldBeAbleToReturnSumOfInputString() throws InvalidStringException {
+
+        Scrabble scrabble = new Scrabble("SUDHIR");
+        int score = scrabble.calculateScore();
+        Assertions.assertEquals(10, score);
+
+
+    }
+ @Test
+    void shouldBeAbleToReturnSumOfInputString1() throws InvalidStringException {
+
+        Scrabble scrabble = new Scrabble("Guardian");
+        int score = scrabble.calculateScore();
+        Assertions.assertEquals(10, score);
 
 
     }
