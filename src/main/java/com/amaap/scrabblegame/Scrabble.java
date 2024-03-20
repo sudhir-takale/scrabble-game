@@ -12,7 +12,7 @@ public class Scrabble {
         this.word = word.trim().toUpperCase();
     }
 
-    public static void validateInput(String inputString) throws InvalidStringException {
+    public void validateInput(String inputString) throws InvalidStringException {
         if (inputString.trim().isEmpty()) {
             throw new InvalidStringException(inputString + "Empty string is not allowed");
         } else if (validateWord(inputString)) {
