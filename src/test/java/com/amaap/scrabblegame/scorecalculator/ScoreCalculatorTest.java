@@ -35,4 +35,19 @@ public class ScoreCalculatorTest {
         // assert
         Assertions.assertEquals(10, score);
     }
+
+    @Test
+    void shouldAbleToCalculateScoreWhenWordDouble() throws InvalidStringException {
+        // Arrange
+        ScoreCalculator scoreCalculator = new ScoreCalculator();
+        scoreCalculator.setWordDouble(true);
+        Scrabble scrabble = new Scrabble("Guardian");
+
+        // Act
+        int score = scrabble.calculateScore();
+
+        // Assert
+        Assertions.assertEquals(20, score);
+    }
+
 }

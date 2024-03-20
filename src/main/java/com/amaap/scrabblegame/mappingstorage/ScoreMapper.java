@@ -1,11 +1,13 @@
 package com.amaap.scrabblegame.mappingstorage;
 
+import com.amaap.scrabblegame.mappingstorage.exceptions.InvalidCharException;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class ScoreMapper {
 
-    static final Map<Character, Integer> letterScorer = new HashMap<>();
+    public static final Map<Character, Integer> letterScorer = new HashMap<>();
 
     static final Map<Integer, String> scoreMapping = new HashMap<>();
 
@@ -23,7 +25,12 @@ public class ScoreMapper {
         return scoreMapping;
     }
 
-    public void setMappingForLetters(char c, int multiplier) {
+    public void setMappingForLetters(char c, int multiplier) throws InvalidCharException {
+        if (multiplier == 0) {
+            throw new InvalidCharException("Invalid arguments passed");
+        }
+
+
         letterScorer.put(c, multiplier);
 
     }
