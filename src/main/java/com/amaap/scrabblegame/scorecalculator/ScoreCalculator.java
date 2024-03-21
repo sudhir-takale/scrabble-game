@@ -5,7 +5,7 @@ import com.amaap.scrabblegame.mappingstorage.ScoreMapper;
 import java.util.Map;
 
 public class ScoreCalculator {
-    private boolean isWordDouble = true;
+    private boolean isWordDouble = false;
     private boolean isWordTriple = false;
 
     public boolean isWordDouble() {
@@ -33,9 +33,6 @@ public class ScoreCalculator {
             }
             score += letterScore;
         }
-        System.out.println(isWordDouble);
-        System.out.println(isWordTriple);
-
         if (isWordDouble) score *= 2;
         else if (isWordTriple) score *= 3;
 

@@ -7,9 +7,9 @@ import java.util.Map;
 
 public class ScoreMapper {
 
-    public static final Map<Character, Integer> letterScorer = new HashMap<>();
+    public static Map<Character, Integer> letterScorer = new HashMap<>();
 
-    static final Map<Integer, String> scoreMapping = new HashMap<>();
+    public static Map<Integer, String> scoreMapping = new HashMap<>();
 
     static {
         scoreMapping.put(1, "EAIONRTLSU");
@@ -26,12 +26,12 @@ public class ScoreMapper {
     }
 
     public void setMappingForLetters(char c, int multiplier) throws InvalidCharException {
-        if (multiplier == 0) {
+
+        if (multiplier <= 0 || multiplier > 2 || !Character.isLetter(c)) {
             throw new InvalidCharException("Invalid arguments passed");
         }
 
-
-        letterScorer.put(c, multiplier);
+        letterScorer.put(Character.toUpperCase(c), multiplier);
 
     }
 

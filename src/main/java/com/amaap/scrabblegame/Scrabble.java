@@ -5,11 +5,18 @@ import com.amaap.scrabblegame.scorecalculator.ScoreCalculator;
 
 public class Scrabble {
 
-    private String word;
 
-    public Scrabble(String word) throws InvalidStringException {
+    private String word;
+    private ScoreCalculator scoreCalculator;
+
+    public Scrabble(String word, ScoreCalculator scoreCalculator) throws InvalidStringException {
         validateInput(word);
         this.word = word.trim().toUpperCase();
+        this.scoreCalculator = scoreCalculator;
+    }
+
+    private static boolean validateWord(String inputString) {
+        return inputString.matches(".*[\\d\\W].*");
     }
 
     public void validateInput(String inputString) throws InvalidStringException {
@@ -20,11 +27,7 @@ public class Scrabble {
         }
     }
 
-    private static boolean validateWord(String inputString) {
-        return inputString.matches(".*[\\d\\W].*");
-    }
-
     public int calculateScore() {
-        return new ScoreCalculator().calculateScore(word);
+        return  scoreCalculator.calculateScore(word);
     }
 }
