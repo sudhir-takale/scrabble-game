@@ -1,6 +1,6 @@
-package com.amaap.scrabblegame;
+package com.amaap.scrabblegame.domain;
 
-import com.amaap.scrabblegame.exceptions.InvalidStringException;
+import com.amaap.scrabblegame.domain.exceptions.InvalidStringException;
 import com.amaap.scrabblegame.scorecalculator.ScoreCalculator;
 
 public class Scrabble {
@@ -8,6 +8,7 @@ public class Scrabble {
 
     private String word;
     private ScoreCalculator scoreCalculator;
+
     public Scrabble(String word, ScoreCalculator scoreCalculator) throws InvalidStringException {
         validateInput(word);
         this.word = word.trim().toUpperCase();
@@ -31,6 +32,7 @@ public class Scrabble {
     }
 
     public int calculateScore() {
+        System.out.println(word);
         return scoreCalculator.calculateScore(word);
     }
 }

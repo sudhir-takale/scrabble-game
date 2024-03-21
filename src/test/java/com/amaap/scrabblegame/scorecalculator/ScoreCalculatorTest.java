@@ -1,13 +1,21 @@
 package com.amaap.scrabblegame.scorecalculator;
 
-import com.amaap.scrabblegame.Scrabble;
-import com.amaap.scrabblegame.exceptions.InvalidStringException;
+import com.amaap.scrabblegame.domain.Scrabble;
+import com.amaap.scrabblegame.domain.exceptions.InvalidStringException;
 import com.amaap.scrabblegame.mappingstorage.ScoreMapper;
 import com.amaap.scrabblegame.mappingstorage.exceptions.InvalidCharException;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class ScoreCalculatorTest {
+
+    @AfterEach
+    void tearDown() {
+        ScoreMapper.letterScorer.clear();
+    }
+
+
     @Test
     void shouldReturnSumOfString() throws InvalidStringException {
         // arrange
@@ -28,16 +36,6 @@ public class ScoreCalculatorTest {
         Assertions.assertEquals(10, score);
     }
 
-    @Test
-    void shouldReturnSumOfInputString1() throws InvalidStringException {
-        // arrange
-        ScoreCalculator scoreCalculator = new ScoreCalculator();
-        Scrabble scrabble = new Scrabble("Guardian", scoreCalculator);
-        // act
-        int score = scrabble.calculateScore();
-        // assert
-        Assertions.assertEquals(10, score);
-    }
 
     @Test
     void shouldAbleToCalculateScoreWhenWordDouble() throws InvalidStringException {

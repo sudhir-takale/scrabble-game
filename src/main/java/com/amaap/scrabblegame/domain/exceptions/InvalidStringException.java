@@ -1,4 +1,4 @@
-package com.amaap.scrabblegame.exceptions;
+package com.amaap.scrabblegame.domain.exceptions;
 
 public class InvalidStringException extends Throwable {
     public InvalidStringException(String s) {

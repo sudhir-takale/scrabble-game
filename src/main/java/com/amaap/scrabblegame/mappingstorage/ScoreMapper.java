@@ -25,6 +25,10 @@ public class ScoreMapper {
         return scoreMapping;
     }
 
+    public Map<Character, Integer> getLetterScorer() {
+        return letterScorer;
+    }
+
     public void setMappingForLetters(char c, int multiplier) throws InvalidCharException {
 
         if (multiplier <= 1 || multiplier > 3 || !Character.isLetter(c)) {

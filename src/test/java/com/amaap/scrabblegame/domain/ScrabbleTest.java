@@ -1,6 +1,6 @@
-package com.amaap.scrabblegame;
+package com.amaap.scrabblegame.domain;
 
-import com.amaap.scrabblegame.exceptions.InvalidStringException;
+import com.amaap.scrabblegame.domain.exceptions.InvalidStringException;
 import com.amaap.scrabblegame.scorecalculator.ScoreCalculator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

@@ -33,6 +33,7 @@ public class ScoreCalculator {
             }
             score += letterScore;
         }
+        System.out.println(isWordDouble);
         if (isWordDouble) score *= 2;
         else if (isWordTriple) score *= 3;
 
