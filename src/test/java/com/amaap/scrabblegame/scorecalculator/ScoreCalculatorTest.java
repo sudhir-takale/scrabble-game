@@ -49,6 +49,18 @@ public class ScoreCalculatorTest {
 
         // Assert
         Assertions.assertEquals(20, score);
+    } @Test
+    void shouldAbleToCalculateScoreWhenWordTriple() throws InvalidStringException {
+        // Arrange
+        ScoreCalculator scoreCalculator = new ScoreCalculator();
+        Scrabble scrabble = new Scrabble("Guardian", scoreCalculator);
+        scoreCalculator.setWordTriple(true);
+
+        // Act
+        int score = scrabble.calculateScore();
+
+        // Assert
+        Assertions.assertEquals(30, score);
     }
 
     @Test
@@ -73,6 +85,14 @@ public class ScoreCalculatorTest {
         // assert
         Assertions.assertEquals(1, ScoreMapper.letterScorer.size());
         Assertions.assertEquals(2, ScoreMapper.letterScorer.get('W'));
+    }
+
+    @Test
+    void shouldReturnFalseIfWordDoubleOrTripleNotSet() throws InvalidStringException {
+        ScoreCalculator scoreCalculator = new ScoreCalculator();
+        Scrabble scrabble = new Scrabble("ar", scoreCalculator);
+        Assertions.assertFalse(scoreCalculator.isWordTriple());
+        Assertions.assertFalse(scoreCalculator.isWordDouble());
     }
 
 }
