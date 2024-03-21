@@ -1,6 +1,18 @@
+![image](https://github.com/sudhir-takale/scrabble-game/assets/93988135/f13e9618-8950-4709-b7f0-a632432decbd)
+
+
+
+
+
+
+
+
+
+
+
 # Scrabble
 
-Scrabble, this is a game where players attempt to create words from a set of letter tiles. Different letters have
+Scrabble, is a game where players attempt to create words from a set of letter tiles. Different letters have
 different points allocated to them.
 In the English alphabet, letters have the following point scores:
 
