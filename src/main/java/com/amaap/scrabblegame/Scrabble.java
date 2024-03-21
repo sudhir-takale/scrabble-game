@@ -8,7 +8,6 @@ public class Scrabble {
 
     private String word;
     private ScoreCalculator scoreCalculator;
-
     public Scrabble(String word, ScoreCalculator scoreCalculator) throws InvalidStringException {
         validateInput(word);
         this.word = word.trim().toUpperCase();
@@ -17,6 +16,10 @@ public class Scrabble {
 
     private static boolean validateWord(String inputString) {
         return inputString.matches(".*[\\d\\W].*");
+    }
+
+    public String getWord() {
+        return word;
     }
 
     public void validateInput(String inputString) throws InvalidStringException {
@@ -28,6 +31,6 @@ public class Scrabble {
     }
 
     public int calculateScore() {
-        return  scoreCalculator.calculateScore(word);
+        return scoreCalculator.calculateScore(word);
     }
 }
