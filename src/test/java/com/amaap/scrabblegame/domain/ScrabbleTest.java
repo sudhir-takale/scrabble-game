@@ -21,7 +21,6 @@ public class ScrabbleTest {
             new Scrabble("SCRABBLE", new ScoreCalculator());
         });
     }
-
     @Test
     void shouldConvertInputToUppercase() throws InvalidStringException {
         // arrange

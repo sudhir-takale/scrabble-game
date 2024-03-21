@@ -15,19 +15,14 @@ public class Scrabble {
         this.scoreCalculator = scoreCalculator;
     }
 
-    private static boolean validateWord(String inputString) {
-        return inputString.matches(".*[\\d\\W].*");
-    }
 
     public String getWord() {
         return word;
     }
 
     public void validateInput(String inputString) throws InvalidStringException {
-        if (inputString.trim().isEmpty()) {
+        if (inputString.trim().isEmpty() || inputString.matches(".*[\\d\\W].*")) {
             throw new InvalidStringException(inputString + "Empty string is not allowed");
-        } else if (validateWord(inputString)) {
-            throw new InvalidStringException(inputString + " is an invalid string");
         }
     }
 

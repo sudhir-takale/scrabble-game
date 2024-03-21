@@ -64,6 +64,15 @@ public class ScoreCalculatorTest {
         Assertions.assertEquals(3, actualScore);
 
     }
-
+    @Test
+    void shouldBeAbleSetLetterMultiplierForLowercaseLetters() throws InvalidCharException {
+        // arrange
+        ScoreMapper scoreMapper = new ScoreMapper();
+        // act
+        scoreMapper.setMappingForLetters('w', 2);
+        // assert
+        Assertions.assertEquals(1, ScoreMapper.letterScorer.size());
+        Assertions.assertEquals(2, ScoreMapper.letterScorer.get('W'));
+    }
 
 }
