@@ -1,4 +1,4 @@
-package com.amaap.scrabblegame.mappingstorage.exceptions;
+package com.amaap.scrabblegame.cofig;
 
 public class InvalidCharException extends Throwable {
     public InvalidCharException(String s) {

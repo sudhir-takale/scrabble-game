@@ -1,11 +1,9 @@
-package com.amaap.scrabblegame.mappingstorage;
-
-import com.amaap.scrabblegame.mappingstorage.exceptions.InvalidCharException;
+package com.amaap.scrabblegame.cofig;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class ScoreMapper {
+public class LetterScoreManager {
 
     public static Map<Character, Integer> letterScorer = new HashMap<>();
 

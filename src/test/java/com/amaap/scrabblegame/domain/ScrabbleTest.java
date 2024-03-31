@@ -1,7 +1,8 @@
 package com.amaap.scrabblegame.domain;
 
 import com.amaap.scrabblegame.domain.exceptions.InvalidStringException;
-import com.amaap.scrabblegame.scorecalculator.ScoreCalculator;
+import com.amaap.scrabblegame.domain.model.validator.Scrabble;
+import com.amaap.scrabblegame.domain.service.ScoreCalculator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -10,21 +11,23 @@ public class ScrabbleTest {
     void shouldThrowExceptionIfEmptyStringIsPassed() {
         // arrange & act & assert
         Assertions.assertThrows(InvalidStringException.class, () -> {
-            new Scrabble(" ", new ScoreCalculator());
+            new Scrabble(" ");
         });
     }
+
 
     @Test
     void shouldNotThrowExceptionForValidString() {
         // arrange & act & assert
         Assertions.assertDoesNotThrow(() -> {
-            new Scrabble("SCRABBLE", new ScoreCalculator());
+            new Scrabble("SCRABBLE");
         });
     }
+
     @Test
     void shouldConvertInputToUppercase() throws InvalidStringException {
         // arrange
-        Scrabble scrabble = new Scrabble("sudhir", new ScoreCalculator());
+        Scrabble scrabble = new Scrabble("sudhir");
         // act
         String word = scrabble.getWord();
         // assert
@@ -36,7 +39,7 @@ public class ScrabbleTest {
     void shouldThrowExceptionIfStringContainsNumbersOrChars() {
         // arrange & act & assert
         Assertions.assertThrows(InvalidStringException.class, () -> {
-            new Scrabble("Sudhir99", new ScoreCalculator());
+            new Scrabble("Sudhir99");
         });
     }
 
@@ -44,7 +47,7 @@ public class ScrabbleTest {
     void shouldThrowExceptionForSpecialCharacters() {
         // arrange & act & assert
         Assertions.assertThrows(InvalidStringException.class, () -> {
-            new Scrabble("!@#$", new ScoreCalculator());
+            new Scrabble("!@#$");
         });
     }
 
@@ -52,9 +55,9 @@ public class ScrabbleTest {
     void shouldCalculateScoreCorrectly() throws InvalidStringException {
         // arrange
         ScoreCalculator scoreCalculator = new ScoreCalculator();
-        Scrabble scrabble = new Scrabble("SCRABBLE", scoreCalculator);
+        Scrabble scrabble = new Scrabble("SCRABBLE");
         // act
-        int score = scrabble.calculateScore();
+        int score = scoreCalculator.calculateScore(scrabble.getWord());
         // assert
         Assertions.assertEquals(14, score);
     }

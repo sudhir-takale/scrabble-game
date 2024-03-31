@@ -1,6 +1,6 @@
-package com.amaap.scrabblegame.scorecalculator;
+package com.amaap.scrabblegame.domain.service;
 
-import com.amaap.scrabblegame.mappingstorage.ScoreMapper;
+import com.amaap.scrabblegame.cofig.LetterScoreManager;
 
 import java.util.Map;
 
@@ -28,8 +28,8 @@ public class ScoreCalculator {
         int score = 0;
         for (int i = 0; i < word.length(); i++) {
             int letterScore = getScore(word.charAt(i));
-            if (ScoreMapper.letterScorer.containsKey(word.charAt(i))) {
-                letterScore *= ScoreMapper.letterScorer.get(word.charAt(i));
+            if (LetterScoreManager.letterScorer.containsKey(word.charAt(i))) {
+                letterScore *= LetterScoreManager.letterScorer.get(word.charAt(i));
             }
             score += letterScore;
         }
@@ -41,7 +41,7 @@ public class ScoreCalculator {
     }
 
     private int getScore(char c) {
-        return ScoreMapper.getScoreMapping().entrySet().stream()
+        return LetterScoreManager.getScoreMapping().entrySet().stream()
                 .filter(entry -> entry.getValue().contains(String.valueOf(c)))
                 .map(Map.Entry::getKey)
                 .findFirst()
