@@ -40,7 +40,6 @@ public class ScoreCalculator {
         return score;
     }
 
-
     private int getScore(char c) {
         return ScoreMapper.getScoreMapping().entrySet().stream()
                 .filter(entry -> entry.getValue().contains(String.valueOf(c)))

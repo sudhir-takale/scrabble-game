@@ -15,7 +15,6 @@ public class ScoreCalculatorTest {
         ScoreMapper.letterScorer.clear();
     }
 
-
     @Test
     void shouldReturnSumOfString() throws InvalidStringException {
         // arrange
@@ -43,22 +42,20 @@ public class ScoreCalculatorTest {
         ScoreCalculator scoreCalculator = new ScoreCalculator();
         Scrabble scrabble = new Scrabble("Guardian", scoreCalculator);
         scoreCalculator.setWordDouble(true);
-
         // Act
         int score = scrabble.calculateScore();
-
         // Assert
         Assertions.assertEquals(20, score);
-    } @Test
+    }
+
+    @Test
     void shouldAbleToCalculateScoreWhenWordTriple() throws InvalidStringException {
         // Arrange
         ScoreCalculator scoreCalculator = new ScoreCalculator();
         Scrabble scrabble = new Scrabble("Guardian", scoreCalculator);
         scoreCalculator.setWordTriple(true);
-
         // Act
         int score = scrabble.calculateScore();
-
         // Assert
         Assertions.assertEquals(30, score);
     }
@@ -76,6 +73,7 @@ public class ScoreCalculatorTest {
         Assertions.assertEquals(3, actualScore);
 
     }
+
     @Test
     void shouldBeAbleSetLetterMultiplierForLowercaseLetters() throws InvalidCharException {
         // arrange
@@ -89,8 +87,11 @@ public class ScoreCalculatorTest {
 
     @Test
     void shouldReturnFalseIfWordDoubleOrTripleNotSet() throws InvalidStringException {
+//        Arrange
         ScoreCalculator scoreCalculator = new ScoreCalculator();
+//        Act
         Scrabble scrabble = new Scrabble("ar", scoreCalculator);
+//        Assert
         Assertions.assertFalse(scoreCalculator.isWordTriple());
         Assertions.assertFalse(scoreCalculator.isWordDouble());
     }

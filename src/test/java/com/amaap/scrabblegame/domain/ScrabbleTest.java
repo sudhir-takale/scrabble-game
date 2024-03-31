@@ -25,10 +25,8 @@ public class ScrabbleTest {
     void shouldConvertInputToUppercase() throws InvalidStringException {
         // arrange
         Scrabble scrabble = new Scrabble("sudhir", new ScoreCalculator());
-
         // act
         String word = scrabble.getWord();
-
         // assert
         Assertions.assertEquals("SUDHIR", word);
     }
@@ -55,10 +53,8 @@ public class ScrabbleTest {
         // arrange
         ScoreCalculator scoreCalculator = new ScoreCalculator();
         Scrabble scrabble = new Scrabble("SCRABBLE", scoreCalculator);
-
         // act
         int score = scrabble.calculateScore();
-
         // assert
         Assertions.assertEquals(14, score);
     }

@@ -21,12 +21,10 @@ class ScoreMapperTest {
     void shouldAbleToThrowInvalidCharExceptionIfCharIsNotAlphabet() throws InvalidCharException {
         //arrange
         ScoreMapper scoreMapper = new ScoreMapper();
-        // act
-        // assert
+        // act & act
         Assertions.assertThrows(InvalidCharException.class, () -> scoreMapper.setMappingForLetters('W', 0));
 
     }
-
 
     @Test
     void shouldReturnSetMultiplierForLetter() throws InvalidCharException {
